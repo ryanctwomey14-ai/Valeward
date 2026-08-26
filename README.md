@@ -21,8 +21,10 @@ site/
 ├── sitemap.xml
 ├── assets/
 │   ├── css/styles.css       Full design system — every token lives here
-│   ├── js/main.js           Interaction layer, ~13 small modules, commented
-│   └── img/                 Drop photography here (see below)
+│   ├── js/main.js           Interaction layer, commented module by module
+│   ├── js/agent.js          Investor assistant (see the root README)
+│   ├── img/                 Photography and generated stills
+│   └── video/hero.mp4       Optimised hero footage (2.1MB)
 └── _build/build.py          Page generator — do not deploy this folder
 ```
 
@@ -57,14 +59,13 @@ If a file is absent, the illustration stays. Nothing breaks either way.
 
 | Filename | Where | Suggested shot |
 |---|---|---|
-| `hero.jpg` | Homepage hero background | Wide apartment exterior at dusk, lights on, generous dark sky for the headline |
-| `hero-aperture.jpg` | Inside the hero arch | Vertical 4:5 — a single lit facade or entrance, warm |
 | `hero-interior.jpg` | All interior page heroes | Wide, dark, low detail — it sits behind text |
-| `property-1…4.jpg` | Property cards | 16:10 exteriors, consistent time of day across all four |
-| `founder.jpg` | Homepage authority section | 4:5 portrait, natural light, dark background |
-| `team-1…3.jpg` | About page | 4:5 portraits, identical treatment across all three |
-| `approach-1.jpg`, `why-1.jpg` | Feature sections | 4:5 vertical, architectural |
+| `property-2…4.jpg` | Portfolio cards | 16:10 exteriors, consistent time of day |
+| `why-1.jpg` | Why Multifamily feature | 4:5 vertical, architectural |
 | `og-home.jpg` | Social sharing | 1200×630 |
+
+Already supplied: `hero.mp4` + `hero-poster.jpg` (homepage hero),
+`principles-bg.jpg` (homepage section 2), `carla-kiernan.jpg` (About).
 
 Export at 2× the display size, then compress to WebP or AVIF and add `srcset` before launch.
 
@@ -75,18 +76,21 @@ not the components.
 
 - **Colour** — sampled from the logomark. Gold (`--gold`) is reserved for the primary CTA.
   Using it anywhere else weakens every button on the site.
-- **Type** — Bodoni Moda (display, 28px and up only) + Instrument Sans (body, tabular numerals).
-- **The arch** — `--arch: 999px 999px 4px 4px`. The signature radius. Applied to the hero
-  aperture, image masks, avatars and the closing outline.
+- **Type** — Cinzel (display; the VALEWARD wordmark) + Jost (body; the CAPITAL subline).
+  Cinzel sets lowercase as petite caps, so it takes positive tracking and smaller sizes.
+  Long-form text never goes in Cinzel.
+- **The arch** — `--arch: 999px 999px 4px 4px`. The signature radius. Applied to the timeline
+  markers, image frames, the assistant launcher and the closing outline.
 - **Motion** — one curve, `--ease-out`. Durations: `--d-press` 140ms, `--d-ui` 220ms,
   `--d-reveal` 760ms.
 
 ### Reusable classes
 `.section--ink` / `--paper2` / `--blush` for section backgrounds · `.arch-figure` for arched
 imagery · `.card`, `.property`, `.tcard` · `.steps` / `.step` · `.accordion` / `.acc` ·
-`.compare` for the comparison table · `.reveal` (add `data-stagger` to a parent to auto-index
-children) · `.reveal-arch` for the doorway wipe · `[data-count]` for animated numbers
-(`data-prefix`, `data-suffix`, `data-decimals`) · `[data-magnetic]` for the pull effect.
+`.criteria` / `.criterion` for the spec grid · `.calc` for the return model · `.migration` for
+the tile map · `.total-return` for the blended figure · `.reveal` (add `data-stagger` to a
+parent to auto-index children) · `.reveal-arch` for the doorway wipe · `[data-count]` for
+animated numbers · `[data-magnetic]` for the pull effect.
 
 ## Accessibility
 

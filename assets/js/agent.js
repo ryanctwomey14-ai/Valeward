@@ -161,7 +161,27 @@
   }
 
   /* ---------- UI -------------------------------------------------------- */
-  var SUGGESTIONS = ['What is the minimum?', 'How long is my money committed?', 'How do you get paid?', 'Could I lose money?'];
+  /* A pool rather than a fixed four: the widget offers questions the visitor
+     has not already asked, so the prompts stay useful the whole conversation. */
+  var SUGGESTIONS = [
+    'What is the minimum investment?',
+    'How long is my money committed?',
+    'How do you get paid?',
+    'Could I lose money?',
+    'What returns do you target?',
+    'When do I get my K-1?',
+    'Can I invest through my IRA?',
+    'How do I get started?',
+    'What kind of properties do you buy?',
+    'Which markets do you invest in?',
+    'What debt do you use?',
+    'Has a deal ever gone wrong?',
+    'How often do you report to investors?',
+    'Who runs the firm?',
+    'Why multifamily rather than a REIT?',
+    'How is the tax treatment handled?'
+  ];
+  var asked = [];
   var DISCLOSURE = 'General information drawn from this site. Not investment, legal or tax advice, and not an offer to sell securities.';
 
   function build() {
@@ -226,6 +246,7 @@
     }
 
     function respond(q) {
+      if (asked.indexOf(q) === -1) asked.push(q);
       bubble('you', q.replace(/</g, '&lt;'));
       history.push({ role: 'user', content: q });
       var t = typing();
@@ -245,15 +266,26 @@
     }
 
     function renderChips() {
+      var remaining = SUGGESTIONS.filter(function (q) { return asked.indexOf(q) === -1; });
       chips.innerHTML = '';
-      SUGGESTIONS.forEach(function (s) {
+      if (!remaining.length) return;
+
+      var label = document.createElement('span');
+      label.className = 'agent__chips-label';
+      label.textContent = asked.length ? 'Also ask' : 'Popular questions';
+      chips.appendChild(label);
+
+      var row = document.createElement('div');
+      row.className = 'agent__chips-row';
+      remaining.slice(0, 4).forEach(function (q) {
         var c = document.createElement('button');
         c.type = 'button';
         c.className = 'agent__chip';
-        c.textContent = s;
-        c.addEventListener('click', function () { respond(s); });
-        chips.appendChild(c);
+        c.textContent = q;
+        c.addEventListener('click', function () { respond(q); });
+        row.appendChild(c);
       });
+      chips.appendChild(row);
     }
 
     function open(state) {
