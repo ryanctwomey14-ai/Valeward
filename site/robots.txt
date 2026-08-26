@@ -1,0 +1,11 @@
+# PREVIEW BUILD — not for indexing.
+# Before launch: restore the production rules below and delete the noindex
+# meta tag from every page (search for 'PREVIEW ONLY').
+User-agent: *
+Disallow: /
+
+# PRODUCTION:
+# User-agent: *
+# Allow: /
+# Disallow: /_build/
+# Sitemap: https://www.valewardcapital.com/sitemap.xml
