@@ -828,6 +828,7 @@ PAGES.append({
     "body": """
 <section class="section">
   <div class="container">
+    <p class="lede reveal" style="margin-bottom:var(--s-4)">Analysis is published to our investor list first. The pieces below are in preparation &mdash; ask us for any of them directly.</p>
     <div class="tag-row reveal" style="margin-bottom:var(--s-5)">
       <span class="tag">All</span><span class="tag">Underwriting</span><span class="tag">Markets</span>
       <span class="tag">Tax</span><span class="tag">Due diligence</span><span class="tag">Letters to investors</span>
@@ -835,37 +836,37 @@ PAGES.append({
     <div class="grid g-3" data-stagger>
       <article class="card reveal">
         <p class="card__idx">Due diligence</p>
-        <h3 class="h3"><a href="#">Four debt questions that anticipated the 2023 distribution suspensions</a></h3>
+        <h2 class="h3">Four debt questions that anticipated the 2023 distribution suspensions</h2>
         <p>Rate, term, structure and treatment at maturity. These four enquiries would have identified the majority of offerings that subsequently suspended distributions.</p>
         <div class="card__foot"><span class="xs">9 min read</span></div>
       </article>
       <article class="card reveal">
         <p class="card__idx">Tax</p>
-        <h3 class="h3"><a href="#">Cost segregation: mechanics and limitations</a></h3>
+        <h2 class="h3">Cost segregation: mechanics and limitations</h2>
         <p>How a study separates one depreciation schedule into four, why it produces a first-year passive loss, and the recapture treatment applicable at disposition.</p>
         <div class="card__foot"><span class="xs">11 min read</span></div>
       </article>
       <article class="card reveal">
         <p class="card__idx">Markets</p>
-        <h3 class="h3"><a href="#">Assessing a submarket supply pipeline</a></h3>
+        <h2 class="h3">Assessing a submarket supply pipeline</h2>
         <p>Permits, starts and deliveries are distinct measures. Conflating them is how investors acquire into a delivery cycle they believe has already concluded.</p>
         <div class="card__foot"><span class="xs">8 min read</span></div>
       </article>
       <article class="card reveal">
         <p class="card__idx">Underwriting</p>
-        <h3 class="h3"><a href="#">Underwriting insurance at quotation rather than trailing cost</a></h3>
+        <h2 class="h3">Underwriting insurance at quotation rather than trailing cost</h2>
         <p>The line item that impaired Sun Belt multifamily returns more materially than interest rates in 2023, and the resulting change to our model.</p>
         <div class="card__foot"><span class="xs">7 min read</span></div>
       </article>
       <article class="card reveal">
         <p class="card__idx">Letters to investors</p>
-        <h3 class="h3"><a href="#">Q4 letter: acquisitions, declined transactions and rationale</a></h3>
+        <h2 class="h3">Q4 letter: acquisitions, declined transactions and rationale</h2>
         <p>Eleven assets underwritten, two offers submitted, one completed. The reasoning behind the nine declined is generally more instructive than that behind the one acquired.</p>
         <div class="card__foot"><span class="xs">6 min read</span></div>
       </article>
       <article class="card reveal">
         <p class="card__idx">Due diligence</p>
-        <h3 class="h3"><a href="#">The contents of a complete diligence file</a></h3>
+        <h2 class="h3">The contents of a complete diligence file</h2>
         <p>A sponsor&rsquo;s willingness to provide the underwriting model with editable assumptions remains the most efficient assessment available to a prospective limited partner.</p>
         <div class="card__foot"><span class="xs">10 min read</span></div>
       </article>
@@ -940,11 +941,11 @@ PAGES.append({
 
 # ----------------------------------------------------------------- INVEST
 PAGES.append({
-    "slug": "invest.html", "nav_label": "Request access", "active": "",
-    "crumb": "Request investor access",
-    "title": "Request Investor Access | Valeward Capital",
-    "desc": "Request access to Valeward Capital multifamily offerings. Requests are reviewed within two business days and place you under no obligation.",
-    "h1": "Request investor access",
+    "slug": "invest.html", "nav_label": "Speak with our team", "active": "",
+    "crumb": "Speak with our team",
+    "title": "Speak With Our Team | Valeward Capital",
+    "desc": "Speak with the Valeward Capital team about multifamily offerings. Enquiries are reviewed within two business days and place you under no obligation.",
+    "h1": "Speak with our team",
     "lede": "A short form, and a response within two business days. Joining the access list places you under no obligation and does not commit you to any offering.",
     "cta": False,
     "body": """

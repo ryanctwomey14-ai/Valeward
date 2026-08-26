@@ -3,6 +3,15 @@
 Prepared by LeadTide. Covers the customer, the architecture, the conversion logic,
 the SEO plan and the design direction behind the build in `/site`.
 
+> **Note — the build has since been edited down.** This document records the
+> full strategy as originally designed. At the client's direction the homepage
+> now runs Hero → Allocation case → Four principles → How returns are generated
+> → Process → FAQ → CTA; the portfolio proof, comparison table, authority,
+> testimonials, transparency and lead-magnet sections were removed, along with
+> all eyebrow labels and the Portfolio nav item. The reasoning for each removed
+> section is retained below, so it can be restored deliberately rather than
+> rediscovered.
+
 ---
 
 ## 1. The ideal customer
