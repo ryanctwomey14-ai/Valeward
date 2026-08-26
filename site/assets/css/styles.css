@@ -505,12 +505,6 @@ tbody tr:last-child td{border-bottom:0}
   .section--ink .step:hover .step__n{background:var(--gold-lt);border-color:var(--gold-lt);color:var(--ink)}
 }
 
-/* Total elapsed time, shown beside the sequence rather than left to be added up */
-.process-total{
-  margin-top:var(--s-5);padding:var(--s-4) var(--s-4) var(--s-4) var(--s-4);
-  border-left:2px solid var(--gold);background:var(--white);border-radius:0 4px 4px 0;
-}
-
 /* ---------- 15b. RETURN MODEL -------------------------------------------
    Two sliders and a live result panel. The panel is the dark surface so the
    numbers carry the weight; the controls stay quiet beside it.
@@ -907,7 +901,7 @@ body.agent-open{overflow:hidden}
 
 /* ---------- 26. PRINT ---------------------------------------------------- */
 @media print{
-  .header,.cta-band,.burger,.mobile-menu,.banner-demo,.scroll-progress{display:none}
+  .header,.cta-band,.burger,.mobile-menu,.scroll-progress{display:none}
   body{background:#fff;color:#000}
   .section{padding-block:2rem}
 }

@@ -154,6 +154,7 @@ def head(page):
 <meta property="og:type" content="website">
 <meta property="og:title" content="__TITLE__">
 <meta property="og:description" content="__DESC__">
+<meta property="og:image" content="https://www.valewardcapital.com/assets/img/og-home.jpg">
 <meta property="og:url" content="https://www.valewardcapital.com/__SLUG__">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="noindex, nofollow"><!-- PREVIEW ONLY: delete this line before launch -->
@@ -767,7 +768,7 @@ PAGES.append({
   <div class="container narrow">
     <div class="reveal prose">
       <h2 class="h2">Origins</h2>
-      <p style="margin-top:var(--s-4)">The first apartment community underwritten by either principal closed in 2007. Within eighteen months, well-capitalised operators were losing assets that remained fully occupied and cash-generative, on account of how those assets had been financed rather than how they performed.</p>
+      <p style="margin-top:var(--s-4)">The first apartment community underwritten by the firm&rsquo;s founder closed in 2007. Within eighteen months, well-capitalised operators were losing assets that remained fully occupied and cash-generative, on account of how those assets had been financed rather than how they performed.</p>
       <p>That experience produced a particular set of priorities. We will pay a somewhat higher price for a better basis. We give limited weight to rent growth assumptions. We are reluctant to reduce reserves. And we will not accept a loan structure capable of removing a performing asset from the partnership.</p>
       <p>Valeward was founded in 2016 to pursue a single strategy, in one asset class, across a small number of markets that can be reached within a day. We have declined capital that would have required the firm to acquire faster than it can underwrite.</p>
     </div>
@@ -806,7 +807,6 @@ PAGES.append({
         </div>
 
         <div class="person__links" style="margin-top:var(--s-5)">
-          <a href="#">LinkedIn</a>
           <a href="mailto:carla@valewardcapital.com">Email</a>
         </div>
       </div>
