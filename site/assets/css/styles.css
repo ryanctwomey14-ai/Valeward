@@ -291,7 +291,7 @@ button{font:inherit;color:inherit;background:none;border:0}
 
 /* word-by-word headline reveal */
 .reveal-line{display:block;overflow:hidden}
-.reveal-word{display:inline-block;transform:translateY(105%);opacity:0}
+.js .reveal-word{display:inline-block;transform:translateY(105%);opacity:0}
 .is-ready .reveal-word{
   transform:none;opacity:1;
   transition:transform 900ms var(--ease-out),opacity 700ms var(--ease-out);
@@ -299,7 +299,7 @@ button{font:inherit;color:inherit;background:none;border:0}
 }
 
 /* hero fade-up group */
-.hero-up{opacity:0;transform:translateY(20px)}
+.js .hero-up{opacity:0;transform:translateY(20px)}
 .is-ready .hero-up{
   opacity:1;transform:none;
   transition:opacity 800ms var(--ease-out),transform 800ms var(--ease-out);
@@ -692,15 +692,19 @@ tbody tr:last-child td{border-bottom:0}
 .section--ink .disclosure-inline{color:var(--muted-dark);border-color:var(--line-dark)}
 
 /* ---------- 23. SCROLL REVEAL -------------------------------------------- */
-.reveal{opacity:0;transform:translateY(22px)}
+.js .reveal{opacity:0;transform:translateY(22px)}
 .reveal.is-in{
   opacity:1;transform:none;
   transition:opacity var(--d-reveal) var(--ease-out),transform var(--d-reveal) var(--ease-out);
   transition-delay:calc(var(--i,0) * 70ms);
 }
 /* the arch wipe: content revealed through an opening doorway */
-.reveal-arch{clip-path:inset(100% 0 0 0 round 999px 999px 4px 4px)}
-.reveal-arch.is-in{clip-path:inset(0 0 0 0 round 999px 999px 4px 4px);transition:clip-path 1150ms var(--ease-out)}
+/* The clip goes on the CHILD, never on the observed element itself: a box
+   clipped to inset(100%) has zero visible area, so IntersectionObserver never
+   reports it as intersecting, it never gains .is-in, and it stays invisible
+   forever. Observing an unclipped parent breaks that deadlock. */
+.js .reveal-arch > *{clip-path:inset(100% 0 0 0 round 999px 999px 4px 4px)}
+.reveal-arch.is-in > *{clip-path:inset(0 0 0 0 round 999px 999px 4px 4px);transition:clip-path 1150ms var(--ease-out)}
 
 /* ---------- 24. RESPONSIVE ----------------------------------------------- */
 @media (max-width:1080px){
@@ -892,7 +896,7 @@ body.agent-open{overflow:hidden}
 /* ---------- 25. REDUCED MOTION ------------------------------------------- */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .reveal,.reveal-arch{opacity:1;transform:none;clip-path:none}
+  .reveal,.reveal-arch,.reveal-arch > *{opacity:1;transform:none;clip-path:none}
   .reveal.is-in{transition:opacity 200ms linear}
   .reveal-word,.hero-up{transform:none;opacity:1}
   .is-ready .reveal-word,.is-ready .hero-up{transition:opacity 200ms linear;transition-delay:0ms}

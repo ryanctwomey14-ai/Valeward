@@ -135,11 +135,15 @@ SVG_DEFS = """
 </svg>
 """
 
-def photo(scene, src, alt=""):
+def photo(scene, src, alt="", lazy=True):
+    """lazy=False for anything above the fold or inside a clipped container:
+    a clipped box can defer a lazy image indefinitely, and the interior hero
+    is the LCP element on every generated page."""
+    load = ' loading="lazy"' if lazy else ''
     return ('<div class="photo-slot">'
             '<svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice">'
             '<use href="#' + scene + '"/></svg>'
-            '<img src="assets/img/' + src + '" alt="' + alt + '" loading="lazy" decoding="async"></div>')
+            '<img src="assets/img/' + src + '" alt="' + alt + '"' + load + ' decoding="async"></div>')
 
 def head(page):
     schema = page.get("schema", "")
@@ -162,7 +166,7 @@ def head(page):
 <link rel="icon" href="assets/img/valeward-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="assets/css/styles.css?v=202608261840">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260826192605">
 __SCHEMA__
 </head>
 """.replace("__TITLE__", page["title"]).replace("__DESC__", page["desc"]) \
@@ -219,7 +223,7 @@ def page_hero(page):
     treatment so arriving on it still feels like arriving somewhere."""
     return """
 <section class="hero hero--page grain">
-  <div class="hero__bg" aria-hidden="true">""" + photo("scene-dusk", "hero-interior.jpg") + """</div>
+  <div class="hero__bg" aria-hidden="true">""" + photo("scene-dusk", "hero-interior.jpg", lazy=False) + """</div>
   <div class="container hero__inner">
     <div class="hero__grid">
       <div>
@@ -317,8 +321,8 @@ FOOTER = """
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=202608261840"></script>
-<script src="assets/js/agent.js?v=202608261840" defer></script>
+<script src="assets/js/main.js?v=20260826192605"></script>
+<script src="assets/js/agent.js?v=20260826192605" defer></script>
 </body>
 </html>
 """
@@ -617,7 +621,7 @@ PAGES.append({
       </div>
       <div class="reveal-arch">
         <div class="arch-figure">
-          <div class="arch-figure__frame" style="max-width:400px">""" + photo("scene-facade", "why-1.jpg", "Workforce apartment community at dusk") + """</div>
+          <div class="arch-figure__frame" style="max-width:400px">""" + photo("scene-facade", "why-1.jpg", "Workforce apartment community at dusk", lazy=False) + """</div>
         </div>
       </div>
     </div>
@@ -783,7 +787,7 @@ PAGES.append({
           <div class="arch-figure__frame" style="max-width:420px">
             <div class="photo-slot">
               <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><use href="#scene-portrait"/></svg>
-              <img src="assets/img/carla-kiernan.jpg" alt="Carla Kiernan of Valeward Capital" loading="lazy" decoding="async">
+              <img src="assets/img/carla-kiernan.jpg" alt="Carla Kiernan of Valeward Capital" decoding="async">
             </div>
           </div>
         </div>

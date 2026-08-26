@@ -11,6 +11,11 @@
 (function () {
   'use strict';
 
+  /* Everything that starts hidden is hidden by `.js` rules only, so if this
+     file fails to load or throws, the page renders fully visible instead of
+     blank. Set before anything else can go wrong. */
+  document.documentElement.classList.add('js');
+
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
   var prefersReduced = function () { return reduce.matches; };
@@ -28,10 +33,10 @@
     var safety = setTimeout(startLoadSequence, 900); // never let a slow font block the page
     document.fonts.ready.then(function () {
       clearTimeout(safety);
-      requestAnimationFrame(startLoadSequence);
+      startLoadSequence();   // not via rAF: a backgrounded tab never runs it
     });
   } else {
-    requestAnimationFrame(startLoadSequence);
+    startLoadSequence();
   }
 
   /* --------------------------------------------------------------------
